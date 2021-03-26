@@ -22,7 +22,7 @@ class RenderItem extends React.Component {
             <View>
               <TouchableOpacity
                 style={styles.circle}
-                onPress={() => this.props.push()}>
+                onPress={() => this.props.push(item.id)}>
                 <Image
                   style={styles.img}
                   source={require('../../assets/edit.png')}
@@ -51,6 +51,7 @@ class RenderItem extends React.Component {
           visible={this.props.visible}
           close={() => this.props.close()}
           editFunction={this.props.update}
+          id={this.props.id}
         />
       </View>
     );

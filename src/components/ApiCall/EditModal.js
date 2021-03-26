@@ -12,7 +12,6 @@ export default class EditModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: 0,
       title: 'foo',
       body: 'foo foo',
     };
@@ -20,7 +19,7 @@ export default class EditModal extends React.Component {
 
   render() {
     const {visible, close, editFunction} = this.props;
-    const {id, title, body} = this.state;
+    const {title, body} = this.state;
 
     return (
       <Modal
@@ -30,11 +29,6 @@ export default class EditModal extends React.Component {
         onRequestClose={() => close()}>
         <View style={styles.card}>
           <View style={styles.box}>
-            <TextInput
-              placeholder="Id"
-              style={styles.inputBox}
-              onChangeText={(text) => this.setState({...this.state, id: text})}
-            />
             <TextInput
               placeholder="Title"
               style={styles.inputBox}
@@ -53,7 +47,7 @@ export default class EditModal extends React.Component {
 
             <TouchableOpacity
               onPress={() => {
-                editFunction(id, title, body);
+                editFunction(this.props.id, title, body);
                 close();
               }}
               style={styles.button}>

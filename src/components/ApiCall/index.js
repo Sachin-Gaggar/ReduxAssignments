@@ -24,6 +24,7 @@ class ApiCall extends React.Component {
     this.state = {
       AddModelVisiblity: false,
       EditModelVisiblity: false,
+      id: '',
     };
   }
 
@@ -36,11 +37,11 @@ class ApiCall extends React.Component {
   addModelToggler = () => {
     this.addModelVisble(true);
   };
-  editModelVisble = (visible) => {
-    this.setState({...this.state, EditModelVisiblity: visible});
+  editModelVisble = (visible, id) => {
+    this.setState({...this.state, EditModelVisiblity: visible, id: id});
   };
-  editModelToggler = () => {
-    this.editModelVisble(true);
+  editModelToggler = (id) => {
+    this.editModelVisble(true, id);
   };
   render() {
     const {
@@ -79,6 +80,7 @@ class ApiCall extends React.Component {
               update={updateDataFunction}
               visible={this.state.EditModelVisiblity}
               push={this.editModelToggler}
+              id={this.state.id}
               close={() => this.editModelVisble(false)}
             />
           )}
