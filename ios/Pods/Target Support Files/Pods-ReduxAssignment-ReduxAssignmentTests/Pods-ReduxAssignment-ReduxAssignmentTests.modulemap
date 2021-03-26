@@ -1,0 +1,6 @@
+module Pods_ReduxAssignment_ReduxAssignmentTests {
+  umbrella header "Pods-ReduxAssignment-ReduxAssignmentTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
